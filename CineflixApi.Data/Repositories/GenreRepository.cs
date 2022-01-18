@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace CineflixApi.Data.Repositories
 {
-    public class MovieRepository : Repository<Movie>, IMovieRepository 
+    public class GenreRepository : Repository<Genre>, IGenreRepository
     {
         public IMapper _mapper;
 
-        public MovieRepository(CineflixContext context, IMapper mapper) : base(context)
+        public GenreRepository(CineflixContext context, IMapper mapper) : base(context)
         {
             _context = context;
-            _mapper = mapper; 
+            _mapper = mapper;           
         }
     }
 }

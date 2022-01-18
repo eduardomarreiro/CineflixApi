@@ -17,39 +17,39 @@ namespace CineflixApi.Data.Repositories
         {
             _context = context;
         }
-
-        public Repository()
-        {
-
-        }
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Remove(entity);
+            _context.SaveChanges();
         }
 
         public List<T> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().ToList();
         }
 
         public List<T> GetByAlphabeticalOrder()
         {
-            throw new NotImplementedException();
+            var sorterdList = _context.Set<T>().ToList();
+            sorterdList.Sort();
+            return sorterdList;
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().FirstOrDefault(x => x.Id == id);
         }
 
         public void Update(T newEntity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Update(newEntity);
+            _context.SaveChanges();
         }
     }
 }
