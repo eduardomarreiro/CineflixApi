@@ -19,5 +19,10 @@ namespace CineflixApi.Data.Repositories
             _context = context;
             _mapper = mapper;           
         }
+
+        public List<Genre> GetGenresByAlphabeticalOrder()
+        {
+            return (List<Genre>)_context.Genres.ToList().OrderBy(x => x.Name);
+        }
     }
 }

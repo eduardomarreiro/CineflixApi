@@ -9,6 +9,6 @@ namespace CineflixApi.Domain.Interfaces.IRepository
 {
     public interface IMovieRepository : IRepository<Movie>
     {
-
+        List<Movie> GetMoviesByAlphabeticalOrder();
     }
 }

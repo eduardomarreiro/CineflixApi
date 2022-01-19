@@ -9,5 +9,6 @@ namespace CineflixApi.Domain.Interfaces.IRepository
 {
     public interface IGenreRepository : IRepository<Genre>
     {
+        List<Genre> GetGenresByAlphabeticalOrder();
     }
 }

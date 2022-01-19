@@ -29,31 +29,15 @@ namespace CineflixApi.Application.Services
             Director director = _mapper.Map<Director>(directorDto);
             _directorRepo.Add(director);
         }
-        public List<ReadDirectorDto> GetDirector()
+        public List<ReadDirectorDto> GetAllDirectors()
         {
-            List<Director> AllDirectors = _directorRepo.GetAll();
-            List<ReadDirectorDto> directorDtosList = new List<ReadDirectorDto>();
-            foreach(Director directors in AllDirectors)
-            {
-                ReadDirectorDto readDirectorDto = new ReadDirectorDto();
-                readDirectorDto = _mapper.Map<ReadDirectorDto>(directors);
-                directorDtosList.Add(readDirectorDto);
-            }
-            return directorDtosList;
+            
+            return _mapper.Map<List<ReadDirectorDto>>(_directorRepo.GetAll());
         }
 
         public List<ReadDirectorDto> GetDirectorByAlphabeticalOrder()
         {
-            List<Director> AllDirectors = _directorRepo.GetByAlphabeticalOrder();
-            List<ReadDirectorDto> directorDtosList = new List<ReadDirectorDto>();
-
-            foreach (Director directors in AllDirectors)
-            {
-                ReadDirectorDto readDirectorDto = new ReadDirectorDto();
-                readDirectorDto = _mapper.Map<ReadDirectorDto>(directors);
-                directorDtosList.Add(readDirectorDto);
-            }
-            return directorDtosList;
+            return _mapper.Map<List<ReadDirectorDto>>(_directorRepo.GetDirectorsByAlphabeticalOrder());
         }
 
         public ReadDirectorDto GetDirectorById(int id)

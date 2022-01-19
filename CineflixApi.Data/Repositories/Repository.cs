@@ -34,13 +34,6 @@ namespace CineflixApi.Data.Repositories
             return _context.Set<T>().ToList();
         }
 
-        public List<T> GetByAlphabeticalOrder()
-        {
-            var sorterdList = _context.Set<T>().ToList();
-            sorterdList.Sort();
-            return sorterdList;
-        }
-
         public T GetById(int id)
         {
             return _context.Set<T>().FirstOrDefault(x => x.Id == id);

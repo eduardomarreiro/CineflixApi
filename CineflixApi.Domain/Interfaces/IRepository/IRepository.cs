@@ -13,7 +13,6 @@ namespace CineflixApi.Domain.Interfaces
         void Delete(T entity);
         T GetById(int id);
         List<T> GetAll();
-        List<T> GetByAlphabeticalOrder();
         void Update(T newEntity);    
     }
 }
