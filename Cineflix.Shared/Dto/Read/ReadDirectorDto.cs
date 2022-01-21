@@ -9,9 +9,7 @@ namespace CineflixApi.Shared.Dto.Read
 {
     public class ReadDirectorDto
     {
-        [Required]
         public string Name { get; set; }
-        [Required]
         public List<ReadMovieDto> Movies { get; set; }
     }
 }

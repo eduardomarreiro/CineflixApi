@@ -1,5 +1,7 @@
+using CineflixApi.Application.ApplicationExtentions;
 using CineflixApi.Application.Services;
 using CineflixApi.Data.Context;
+using CineflixApi.Data.DataExtentions;
 using CineflixApi.Data.Repositories;
 using CineflixApi.Domain.Interfaces.IRepository;
 using CineflixApi.Domain.Interfaces.IService;
@@ -33,13 +35,9 @@ namespace CineflixApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IMovieRepository, MovieRepository>();
 
-            services.AddTransient<IMovieService, MovieService>();
-
-            services.AddAutoMapper(Assembly.GetAssembly(typeof(CineflixContext)));
-
-            services.AddDbContext<CineflixContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CineflixConnection")));
+            services.AddData(Configuration);
+            services.AddApplication();       
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

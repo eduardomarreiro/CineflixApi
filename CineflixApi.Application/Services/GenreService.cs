@@ -30,7 +30,7 @@ namespace CineflixApi.Application.Services
             _genreRepo.Add(genre);
         }
 
-        public List<ReadGenreDto> GetGenre()
+        public List<ReadGenreDto> GetAllGenres()
         {
             List<Genre> AllGenres = _genreRepo.GetAll();
             List<ReadGenreDto> genreDtosList = new List<ReadGenreDto>();
@@ -43,11 +43,20 @@ namespace CineflixApi.Application.Services
             return genreDtosList;
         }
 
+        public List<ReadGenreDto> GetGenresByAlphabeticalOrder()
+        {
+            return _mapper.Map<List<ReadGenreDto>>(_genreRepo.GetGenresByAlphabeticalOrder());
+        }
+
         public ReadGenreDto GetGenreById(int id)
         {
-            ReadGenreDto genreDto = _mapper.Map<ReadGenreDto>(id);
-            _genreRepo.GetById(id);
-            return genreDto;
+            Genre genre = _genreRepo.GetById(id);
+            if(genre != null)
+            {
+                ReadGenreDto genreDto = _mapper.Map<ReadGenreDto>(genre);
+                return genreDto;
+            }
+            return new ReadGenreDto();
         }
 
         public void DeleteGenre(int id)

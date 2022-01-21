@@ -26,7 +26,7 @@ namespace CineflixApi.Controllers
             return Ok();
         }
 
-        [HttpGet("ordered")]
+        [HttpGet("sorted")]
         public List<ReadMovieDto> ReturntMoviesByAlphabeticalOrder()
         {
             return _service.GetMoviesByAlphabeticalOrder();

@@ -22,7 +22,7 @@ namespace CineflixApi.Data.Repositories
 
         public List<Director> GetDirectorsByAlphabeticalOrder()
         {
-            return (List<Director>)_context.Directors.ToList().OrderBy(x => x.Name);
+            return _context.Directors.OrderBy(x => x.Name).ToList();
         }
     }
 }

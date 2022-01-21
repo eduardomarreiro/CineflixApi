@@ -42,9 +42,14 @@ namespace CineflixApi.Application.Services
 
         public ReadDirectorDto GetDirectorById(int id)
         {
-            ReadDirectorDto directorDto = _mapper.Map<ReadDirectorDto>(id);
-            _directorRepo.GetById(id);
-            return directorDto;
+            Director director = _directorRepo.GetById(id);
+            if(director != null)
+            {
+                ReadDirectorDto directorDto = _mapper.Map<ReadDirectorDto>(director);
+                return directorDto;
+            }
+            else
+                return new ReadDirectorDto();
         }
 
         public void DeleteDirector(int id)

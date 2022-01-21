@@ -32,15 +32,7 @@ namespace CineflixApi.Application.Services
 
         public List<ReadMovieDto> GetMovies()
         {
-            List<Movie> AllMovies = _movieRepo.GetAll();
-            List<ReadMovieDto> movieDtosList = new List<ReadMovieDto>();
-            foreach (Movie movies in AllMovies)
-            {
-                ReadMovieDto readMovieDto = new ReadMovieDto();
-                readMovieDto = _mapper.Map<ReadMovieDto>(movies);
-                movieDtosList.Add(readMovieDto);
-            }
-            return movieDtosList;
+            return _mapper.Map<List<ReadMovieDto>>(_movieRepo.GetAll());
         }
         public List<ReadMovieDto> GetMoviesByAlphabeticalOrder()
         {
@@ -49,9 +41,14 @@ namespace CineflixApi.Application.Services
 
         public ReadMovieDto GetMovieById(int id)
         {
-            ReadMovieDto movieDto = _mapper.Map<ReadMovieDto>(id);
-            _movieRepo.GetById(id);
-            return movieDto;
+            Movie movie = _movieRepo.GetById(id);
+            if (movie != null)
+            {
+                ReadMovieDto movieDto = _mapper.Map<ReadMovieDto>(movie);
+                return movieDto;
+            }
+            else
+                return new ReadMovieDto();
         }
 
         public void DeleteMovie(int id)

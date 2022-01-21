@@ -2,6 +2,7 @@
 using CineflixApi.Data.Context;
 using CineflixApi.Domain.Interfaces.IRepository;
 using CineflixApi.Domain.Models;
+using CineflixApi.Shared.Dto.Read;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,18 @@ using System.Threading.Tasks;
 
 namespace CineflixApi.Data.Repositories
 {
-    public class GenreRepository : Repository<Genre>, IGenreRepository
+    public class UserRepository : Repository<User>, IUserRepository
     {
-        public IMapper _mapper;
-
-        public GenreRepository(CineflixContext context, IMapper mapper) : base(context)
+        IMapper _mapper;
+        public UserRepository(CineflixContext context, IMapper mapper) : base(context)
         {
             _context = context;
-            _mapper = mapper;           
+            _mapper = mapper;
         }
 
-        public List<Genre> GetGenresByAlphabeticalOrder()
+        public List<User> GetUsersByAlphabeticalOrder()
         {
-            return _context.Genres.OrderBy(x => x.Name).ToList();
+            return _context.Users.OrderBy(x => x.UserName).ToList();
         }
     }
 }

@@ -3,14 +3,16 @@ using CineflixApi.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CineflixApi.Data.Migrations
 {
     [DbContext(typeof(CineflixContext))]
-    partial class CineflixContextModelSnapshot : ModelSnapshot
+    [Migration("20220120214528_UsersTable")]
+    partial class UsersTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
