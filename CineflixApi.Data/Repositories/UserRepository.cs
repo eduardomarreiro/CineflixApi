@@ -24,5 +24,10 @@ namespace CineflixApi.Data.Repositories
         {
             return _context.Users.OrderBy(x => x.UserName).ToList();
         }
+
+        public User GetUserByCredentials(string user, string password)
+        {
+            return _context.Users.FirstOrDefault(x => x.UserName.Equals(user) && x.Password.Equals(password));
+        }
     }
 }

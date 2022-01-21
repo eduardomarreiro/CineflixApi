@@ -1,4 +1,5 @@
-﻿using CineflixApi.Shared.Dto.Create;
+﻿using CineflixApi.Domain.Models;
+using CineflixApi.Shared.Dto.Create;
 using CineflixApi.Shared.Dto.Read;
 using CineflixApi.Shared.Dto.Update;
 using System;
@@ -17,5 +18,6 @@ namespace CineflixApi.Domain.Interfaces.IService
         ReadUserDto GetUserById(int id);
         void DeleteUser(int id);
         void UpdateUser(int id, UpdateUserDto userDto);
+        User GetUser(string username, string password);
     }
 }

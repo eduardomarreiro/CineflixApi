@@ -74,5 +74,10 @@ namespace CineflixApi.Application.Services
                 _userRepo.Update(user);
             }
         }
+
+        public User GetUser(string username, string password)
+        {
+            return _userRepo.GetUserByCredentials(username, password);
+        }
     }
 }

@@ -5,6 +5,7 @@ using CineflixApi.Data.DataExtentions;
 using CineflixApi.Data.Repositories;
 using CineflixApi.Domain.Interfaces.IRepository;
 using CineflixApi.Domain.Interfaces.IService;
+using CineflixApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,12 +38,11 @@ namespace CineflixApi
         {
 
             services.AddData(Configuration);
-            services.AddApplication();       
+            services.AddApplication();
+            services.AddJwt(Configuration);
+            services.AddSingleton<TokenService>();
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CineflixApi", Version = "v1" });
-            });
+            services.AddSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +58,8 @@ namespace CineflixApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -47,7 +47,6 @@ namespace CineflixApi.Application.Services
                 ReadMovieDto movieDto = _mapper.Map<ReadMovieDto>(movie);
                 return movieDto;
             }
-            else
                 return new ReadMovieDto();
         }
 
