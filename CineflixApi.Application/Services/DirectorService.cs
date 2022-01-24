@@ -4,6 +4,7 @@ using CineflixApi.Domain.Interfaces.IService;
 using CineflixApi.Domain.Models;
 using CineflixApi.Shared.Dto.Create;
 using CineflixApi.Shared.Dto.Read;
+using CineflixApi.Shared.Dto.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,46 @@ namespace CineflixApi.Application.Services
             Director director = _mapper.Map<Director>(directorDto);
             _directorRepo.Add(director);
         }
-        //public List<ReadDirectorDto> GetDirectors()
-        //{
-        //    List<Director> directors = new List<Director>();  ********** fazer uma conversão bem chata!!
+        public List<ReadDirectorDto> GetAllDirectors()
+        {
+            
+            return _mapper.Map<List<ReadDirectorDto>>(_directorRepo.GetAll());
+        }
 
-        //    return _directorRepo.GetAll();
-        //}
+        public List<ReadDirectorDto> GetDirectorByAlphabeticalOrder()
+        {
+            return _mapper.Map<List<ReadDirectorDto>>(_directorRepo.GetDirectorsByAlphabeticalOrder());
+        }
+
+        public ReadDirectorDto GetDirectorById(int id)
+        {
+            Director director = _directorRepo.GetById(id);
+            if(director != null)
+            {
+                ReadDirectorDto directorDto = _mapper.Map<ReadDirectorDto>(director);
+                return directorDto;
+            }
+            else
+                return new ReadDirectorDto();
+        }
+
+        public void DeleteDirector(int id)
+        {
+            Director director = _directorRepo.GetById(id);        
+            if(director != null)
+            {
+                _directorRepo.Delete(director);
+            }
+        }
+        public void UpdateDirector(int id, UpdateDirectorDto directorDto)
+        {
+            Director director = _directorRepo.GetById(id);
+            if( director != null)
+            {
+                director.Id = id;
+                director.Name = directorDto.Name;
+                _directorRepo.Update(director);
+            }
+        }
     }
 }

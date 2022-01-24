@@ -11,14 +11,13 @@ using System.Threading.Tasks;
 
 namespace CineflixApi.Data.Profiles
 {
-    public class DirectorProfile : Profile
+    public class UserProfile : Profile
     {
-        public DirectorProfile()
+        public UserProfile()
         {
-            CreateMap<Director, ReadDirectorDto>()
-                .ForMember(dest => dest.Movies, opt => opt.MapFrom(src => src.Movies));
-            CreateMap<CreateDirectorDto, Director>();
-            CreateMap<UpdateDirectorDto, Director>();
+            CreateMap<User, ReadUserDto>();
+            CreateMap<CreateUserDto, User>();
+            CreateMap<UpdateUserDto, User>();
         }
     }
 }

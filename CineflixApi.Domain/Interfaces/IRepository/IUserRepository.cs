@@ -1,4 +1,5 @@
 ﻿using CineflixApi.Domain.Models;
+using CineflixApi.Shared.Dto.Read;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace CineflixApi.Domain.Interfaces.IRepository
 {
-    public interface IDirectorRepository : IRepository<Director>
+    public interface IUserRepository : IRepository<User>
     {
-        List<Director> GetDirectorsByAlphabeticalOrder();
+        List<User> GetUsersByAlphabeticalOrder();
+        User GetUserByCredentials(string user, string password);
     }
 }

@@ -16,6 +16,7 @@ namespace CineflixApi.Data.Repositories
         public Repository(CineflixContext context)
         {
             _context = context;
+
         }
         public void Add(T entity)
         {
@@ -29,19 +30,12 @@ namespace CineflixApi.Data.Repositories
             _context.SaveChanges();
         }
 
-        public List<T> GetAll()
+        public virtual List<T> GetAll()
         {
             return _context.Set<T>().ToList();
         }
 
-        public List<T> GetByAlphabeticalOrder()
-        {
-            var sorterdList = _context.Set<T>().ToList();
-            sorterdList.Sort();
-            return sorterdList;
-        }
-
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return _context.Set<T>().FirstOrDefault(x => x.Id == id);
         }

@@ -15,7 +15,10 @@ namespace CineflixApi.Data.Profiles
     {
         public MovieProfile()
         {
-            CreateMap<Movie, ReadMovieDto>();
+            CreateMap<Movie, ReadMovieDto>()
+                .ForMember(dest => dest.Director, opt => opt.MapFrom(src => src.Director.Name))
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
+
             CreateMap<CreateMovieDto, Movie>();
             CreateMap<UpdateMovieDto, Movie>();
         }
