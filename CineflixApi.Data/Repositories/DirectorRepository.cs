@@ -2,6 +2,7 @@
 using CineflixApi.Data.Context;
 using CineflixApi.Domain.Interfaces.IRepository;
 using CineflixApi.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,19 @@ namespace CineflixApi.Data.Repositories
             _mapper = mapper;
         }
 
+        public override List<Director> GetAll()
+        {
+            return _context.Directors.Include(x => x.Movies).ThenInclude(z => z.Genre).ToList();
+        }
+
+        public override Director GetById(int id)
+        {
+            return _context.Directors.Include(x => x.Movies).ThenInclude(y => y.Genre).FirstOrDefault(z => z.Id == id);
+        }
+
         public List<Director> GetDirectorsByAlphabeticalOrder()
         {
-            return _context.Directors.OrderBy(x => x.Name).ToList();
+            return _context.Directors.Include(x => x.Movies).ThenInclude(z => z.Genre).OrderBy(x => x.Name).ToList();
         }
     }
 }

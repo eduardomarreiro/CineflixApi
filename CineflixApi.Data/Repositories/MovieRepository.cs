@@ -41,10 +41,11 @@ namespace CineflixApi.Data.Repositories
                 .FirstOrDefault(z => z.Id == id);
         }
 
-        //public List<Movie> GetMovieByDirector(string director)
-        //{
-        //    return _context.Movies.Include(x => x.Director)
-        //        .FirstOrDefault(d => d.Director.Name == director);
-        //}
+        public List<Movie> GetMovieByDirector(string director)
+        {
+            return _context.Movies.Include(x => x.Director)
+                .Include(x => x.Genre)
+                .Where(x => x.Director.Name.Equals(director)).ToList();
+        }
     }
 }

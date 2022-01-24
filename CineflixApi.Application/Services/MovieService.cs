@@ -39,6 +39,11 @@ namespace CineflixApi.Application.Services
             return _mapper.Map<List<ReadMovieDto>>(_movieRepo.GetMoviesByAlphabeticalOrder());
         }
 
+        public List<ReadMovieDto> GetMovieByDirector(string director)
+        {
+            return _mapper.Map<List<ReadMovieDto>>(_movieRepo.GetMovieByDirector(director));
+        }
+
         public ReadMovieDto GetMovieById(int id)
         {
             Movie movie = _movieRepo.GetById(id);

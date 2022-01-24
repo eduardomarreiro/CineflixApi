@@ -21,6 +21,7 @@ namespace CineflixApi.Data.DataExtentions
             services.AddTransient<IDirectorRepository, DirectorRepository>();
             services.AddTransient<IGenreRepository, GenreRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            
             services.AddDbContext<CineflixContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CineflixConnection")));
             services.AddAutoMapper(Assembly.GetAssembly(typeof(CineflixContext)));
 

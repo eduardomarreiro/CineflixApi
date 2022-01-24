@@ -17,5 +17,6 @@ namespace CineflixApi.Domain.Interfaces.IService
         ReadMovieDto GetMovieById(int id);
         void DeleteMovie(int id);
         void UpdateMovie(int id, UpdateMovieDto movieDto);
+        List<ReadMovieDto> GetMovieByDirector(string director);
     }
 }

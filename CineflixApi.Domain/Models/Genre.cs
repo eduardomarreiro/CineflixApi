@@ -12,6 +12,6 @@ namespace CineflixApi.Domain.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public List<Movie> Movies { get;}
+        public List<Movie> Movies { get; set; }
     }
 }

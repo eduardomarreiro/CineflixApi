@@ -52,7 +52,7 @@ namespace CineflixApi.Controllers
                 foreach (var user in userList)
                 {
                     user.Password = "Unauthorized";
-                    user.Role = "Role";
+                    user.Role = "Unauthorized";
                     userDtosList.Add(user);
                 }
                 return userDtosList;
