@@ -1,17 +1,12 @@
 ﻿using AutoMapper;
 using CineflixApi.Application.Services;
 using CineflixApi.Domain.Interfaces.IRepository;
-using CineflixApi.Domain.Interfaces.IService;
 using CineflixApi.Domain.Models;
 using CineflixApi.Shared.Dto.Create;
 using CineflixApi.Shared.Dto.Read;
 using CineflixApi.Shared.Dto.Update;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Application.Test

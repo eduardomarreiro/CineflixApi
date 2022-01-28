@@ -1,11 +1,9 @@
 ﻿using CineflixApi.Domain.Interfaces.IService;
-using CineflixApi.Domain.Models;
 using CineflixApi.Services;
 using CineflixApi.Shared.Dto.Create;
 using CineflixApi.Shared.Dto.Read;
 using CineflixApi.Shared.Dto.Update;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
