@@ -1,11 +1,9 @@
 ﻿using CineflixApi.Domain.Interfaces.IService;
-using CineflixApi.Domain.Models;
 using CineflixApi.Services;
 using CineflixApi.Shared.Dto.Create;
 using CineflixApi.Shared.Dto.Read;
 using CineflixApi.Shared.Dto.Update;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -52,7 +50,7 @@ namespace CineflixApi.Controllers
                 foreach (var user in userList)
                 {
                     user.Password = "Unauthorized";
-                    user.Role = "Role";
+                    user.Role = "Unauthorized";
                     userDtosList.Add(user);
                 }
                 return userDtosList;

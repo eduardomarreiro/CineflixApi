@@ -1,11 +1,7 @@
 ﻿using CineflixApi.Shared.Dto.Create;
 using CineflixApi.Shared.Dto.Read;
 using CineflixApi.Shared.Dto.Update;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CineflixApi.Domain.Interfaces.IService
 {
@@ -17,5 +13,6 @@ namespace CineflixApi.Domain.Interfaces.IService
         ReadMovieDto GetMovieById(int id);
         void DeleteMovie(int id);
         void UpdateMovie(int id, UpdateMovieDto movieDto);
+        List<ReadMovieDto> GetMovieByDirector(string director);
     }
 }

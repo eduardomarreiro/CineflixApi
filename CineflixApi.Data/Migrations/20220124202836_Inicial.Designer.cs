@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CineflixApi.Data.Migrations
 {
     [DbContext(typeof(CineflixContext))]
-    [Migration("20220120214528_UsersTable")]
-    partial class UsersTable
+    [Migration("20220124202836_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

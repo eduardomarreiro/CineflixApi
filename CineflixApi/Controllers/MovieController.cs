@@ -38,6 +38,11 @@ namespace CineflixApi.Controllers
             return _service.GetMovies();
         }
 
+        [HttpGet("director")]
+        public List<ReadMovieDto> ReturnMovieByDirector(string director)
+        {
+            return _service.GetMovieByDirector(director);
+        }
         [HttpGet("id")]
         public ReadMovieDto ReturnMovieById(int id)
         {
