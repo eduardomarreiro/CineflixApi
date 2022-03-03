@@ -1,0 +1,2 @@
+Projeto entregue a Dell LEAD ao final da mentoria de C#. O intuito do projeto era criar uma uma API onde fosse possível adicionar, atualizar, deletar e consultar filmes. Além de possuir sistema de autenticação e conexão com banco de dados.
+Project delivered to Dell LEAD at the end of the C# mentorship. The purpose of the project was to create an API where it was possible to add, update, delete and consult movies. In addition to having an authentication system and database connection.
